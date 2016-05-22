@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65bc5c78-4257-4a96-be3f-39ab56fe20ea" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/blade.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/projectwiz_l5.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
     </list>
     <ignored path="projectwiz_l5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +31,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -89,7 +92,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="300" />
+    <option name="x" value="144" />
+    <option name="y" value="32" />
     <option name="width" value="1532" />
     <option name="height" value="1000" />
   </component>
@@ -465,7 +469,7 @@
       <workItem from="1463161723111" duration="1820000" />
       <workItem from="1463195550000" duration="30000" />
       <workItem from="1463926997479" duration="181000" />
-      <workItem from="1463934916619" duration="793000" />
+      <workItem from="1463934916619" duration="1199000" />
     </task>
     <task id="LOCAL-00001" summary="removed .idea directory in repo">
       <created>1463935711843</created>
@@ -474,14 +478,35 @@
       <option name="project" value="LOCAL" />
       <updated>1463935711843</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="removed .idea directory in repo">
+      <created>1463935718494</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1463935718494</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ignore npm debug log file">
+      <created>1463936080649</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1463936080649</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added some info">
+      <created>1463936095298</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1463936095298</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7288000" />
+    <option name="totallyTimeSpent" value="7694000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="300" y="0" width="1532" height="1000" extended-state="0" />
+    <frame x="144" y="32" width="1532" height="1000" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -518,7 +543,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="removed .idea directory in repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed .idea directory in repo" />
+    <MESSAGE value="ignore npm debug log file" />
+    <MESSAGE value="added some info" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some info" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -705,10 +732,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/npm-debug.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="10094" column="15" selection-start-line="10094" selection-start-column="15" selection-end-line="10094" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
