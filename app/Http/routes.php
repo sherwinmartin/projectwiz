@@ -41,6 +41,10 @@ Route::group(['middleware' => 'auth'], function ()
         'as'        => 'logout',
         'uses'      => 'UserController@logout'
     ]);
+});
 
+// admin and manager routes
+Route::group(['middleware' => 'role:admin|manager'], function ()
+{
     Route::resource('clients', 'ClientController');
 });
