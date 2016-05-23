@@ -5,6 +5,11 @@
         <li>{{ link_to_action('DashboardController@index', 'Home') }}</li>
         <li class="active">{{ $page_title }}</li>
     </ul>
+
+    <div class="page-header">
+        <h2>{{ $page_title }}</h2>
+    </div>
+
     @if (!$clients->isEmpty())
         <table class="table table-striped">
             <thead>
