@@ -41,18 +41,13 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         @if (App\Helpers\ProjectwizHelper::isRole('admin'))
-                            @if (isset($navi_group) && $navi_group == 'clients')
-                                <li class="active">
-                            @else
-                                <li>
-                            @endif
+                            <li{!! (isset($navi_group) && $navi_group == 'clients') ? ' class=active' : '' !!}>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clients <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    @if (isset($navi_submenu) && $navi_group == 'clients' && $navi_submenu == 'index')
-                                        <li class="active">
-                                    @else
-                                        <li>
-                                    @endif
+                                    <li{!! (isset($navi_group) && ($navi_group) == 'clients' && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
+                                        {{ link_to_action('ClientController@index', 'View All Clients') }}
+                                    </li>
+
                                         {{--!! link_to_route('clients.index', 'View All Clients') !!}</li>
 
                                     @if (isset($navi_submenu) && $navi_group == 'clients' && $navi_submenu == 'create')
