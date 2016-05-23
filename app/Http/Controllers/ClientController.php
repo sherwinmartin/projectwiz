@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Models\Client;
+
 class ClientController extends Controller
 {
     public function index()
@@ -13,7 +15,8 @@ class ClientController extends Controller
         $data = [
             'page_title'        => 'View All Clients',
             'navi_group'        => 'clients',
-            'navi_submenu'      => 'index'
+            'navi_submenu'      => 'index',
+            'clients'           => Client::get()
         ];
 
         return view('clients.index', $data);
