@@ -10,6 +10,10 @@ use App\Models\Client;
 
 class ClientController extends Controller
 {
+    /**
+     * Display all client records.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $data = [
@@ -20,5 +24,17 @@ class ClientController extends Controller
         ];
 
         return view('clients.index', $data);
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            'page_title'        => 'Edit Client',
+            'navi_group'        => 'clients',
+            'navi_submenu'      => 'edit',
+            'client'           => Client::find($id)
+        ];
+
+        return view('clients.edit', $data);
     }
 }
