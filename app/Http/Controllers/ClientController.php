@@ -26,6 +26,11 @@ class ClientController extends Controller
         return view('clients.index', $data);
     }
 
+    /**
+     * Display edit form.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $data = [
