@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
         $data = [
             'page_title'        => 'Welcome to Projectwiz',
-            'navi_group'        => ''
+            'navi_group'        => 'dashboard'
         ];
 
         return view('pages.dashboard', $data);
