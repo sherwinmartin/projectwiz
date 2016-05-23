@@ -17,7 +17,7 @@
                 @foreach ($clients as $client)
                     <tr>
                         <td>{{ $client->client_name }}</td>
-                        <td class="text-right"><a href="" class="btn btn-default">edit</a></td>
+                        <td class="text-right">{{ link_to_action('ClientController@edit', 'edit', ['id' => $client->id], ['class' => 'btn btn-default']) }}</td>
                     </tr>
                 @endforeach
             </tbody>
