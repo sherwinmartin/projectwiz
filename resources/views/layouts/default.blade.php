@@ -72,6 +72,9 @@
                                     <li{!! (isset($navi_group) && ($navi_group == 'projects') && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
                                         {{ link_to_action('ProjectController@index', 'View All Projects') }}
                                     </li>
+                                    <li{!! (isset($navi_group) && ($navi_group == 'projects') && ($navi_submenu == 'create')) ? ' class=active' : '' !!}>
+                                        {{ link_to_action('ProjectController@create', 'Create New Project') }}
+                                    </li>
                                 </ul>
                             </li>
 
