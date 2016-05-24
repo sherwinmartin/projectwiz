@@ -41,7 +41,16 @@
 
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        @if (App\Helpers\ProjectwizHelper::isRole('admin'))
+                        @if (App\User::hasRoles('admin|manager'))
+                            <li{!! (isset($navi_group) && $navi_group == 'holidays') ? ' class=active' : '' !!}>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Holidays <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li{!! (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
+                                        {{ link_to_action('HolidayController@index', 'View All Holidays') }}
+                                    </li>
+                                </ul>
+                            </li>
+
                             <li{!! (isset($navi_group) && $navi_group == 'clients') ? ' class=active' : '' !!}>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clients <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -77,21 +86,9 @@
                                 </ul>
                             </li>
 
-                            @if (isset($navi_group) && $navi_group == 'holidays')
-                                <li class="active">
-                            @else
-                                <li>
-                            @endif
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Holidays <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    @if (isset($navi_submenu) && $navi_group == 'holidays' && $navi_submenu == 'index')
-                                        <li class="active">
-                                    @else
-                                        <li>
-                                    @endif
-                                    {!! link_to_route('holidays.index', 'View All Holidays') !!}</li>
-                                </ul>
-                            </li>
+
+
+
                         @endif {{-- endif admin --}}
 
                                 {{--
