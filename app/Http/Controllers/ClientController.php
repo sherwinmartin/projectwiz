@@ -17,13 +17,38 @@ class ClientController extends Controller
     public function index()
     {
         $data = [
-            'page_title'        => 'View All Clients',
-            'navi_group'        => 'clients',
-            'navi_submenu'      => 'index',
-            'clients'           => Client::get()
+            'page_title' => 'View All Clients',
+            'navi_group' => 'clients',
+            'navi_submenu' => 'index',
+            'clients' => Client::get()
         ];
 
         return view('clients.index', $data);
+    }
+
+    /**
+     * Display create form.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        $data = [
+            'page_title' => 'Create New Client',
+            'navi_group' => 'clients',
+            'navi_submenu' => 'create'
+        ];
+
+        return view('clients.create', $data);
+    }
+
+    public function store(Requests\ClientRequest $request)
+    {
+        if (Client::storeRecord($request))
+        {
+            return back()->with('success', 'Client created.');
+        }
+
+        return back()->withInput()->with('error', 'Client not created.');
     }
 
     /**
