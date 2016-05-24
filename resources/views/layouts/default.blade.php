@@ -66,28 +66,15 @@
                                 </ul>
                             </li>
 
-                            @if (isset($navi_group) && $navi_group == 'projects')
-                                <li class="active">
-                            @else
-                                <li>
-                            @endif
+                            <li{!! (isset($navi_group) && $navi_group == 'projects') ? ' class=active' : '' !!}>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    @if (isset($navi_submenu) && $navi_group == 'projects' && $navi_submenu == 'index')
-                                        <li class="active">
-                                    @else
-                                        <li>
-                                    @endif
-                                        {{--!! link_to_route('projects.index', 'View All Projects') !!}</li>
-
-                                    @if (isset($navi_submenu) && $navi_group == 'projects' && $navi_submenu == 'create')
-                                        <li class="active">
-                                    @else
-                                        <li>
-                                    @endif
-                                            {!! link_to_route('projects.create', 'Create New Project') !!--}}</li>
+                                    <li{!! (isset($navi_group) && ($navi_group == 'projects') && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
+                                        {{ link_to_action('ProjectController@index', 'View All Projects') }}
+                                    </li>
                                 </ul>
                             </li>
+
 
 
 
