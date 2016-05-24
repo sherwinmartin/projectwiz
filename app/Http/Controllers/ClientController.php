@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Models\Client;
 
+use Redirect;
+
 class ClientController extends Controller
 {
     /**
@@ -62,7 +64,8 @@ class ClientController extends Controller
             'page_title'        => 'Edit Client',
             'navi_group'        => 'clients',
             'navi_submenu'      => 'edit',
-            'client'           => Client::find($id)
+            'client'            => Client::find($id),
+            'has_project'       => Client::hasProjects($id)
         ];
 
         return view('clients.edit', $data);
@@ -81,5 +84,22 @@ class ClientController extends Controller
         }
 
         return back()->withInput()->with('error', 'Client failed to be updated.');
+    }
+
+    /**
+     * Delete client record.
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy($id)
+    {
+        $client = Client::find($id);
+
+        if ($client->delete())
+        {
+            return redirect::action('ClientController@index')->with('success', 'Client Deleted.');
+        }
+
+        return back()->with('error', 'Client not deleted.');
     }
 }
