@@ -47,4 +47,5 @@ Route::group(['middleware' => 'auth'], function ()
 Route::group(['middleware' => 'role:admin|manager'], function ()
 {
     Route::resource('clients', 'ClientController');
+    Route::resource('holidays', 'HolidayController');
 });
