@@ -48,6 +48,9 @@
                                     <li{!! (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
                                         {{ link_to_action('HolidayController@index', 'View All Holidays') }}
                                     </li>
+                                    <li{!! (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'create')) ? ' class=active' : '' !!}>
+                                        {{ link_to_action('HolidayController@create', 'Create New Holiday') }}
+                                    </li>
                                 </ul>
                             </li>
 
