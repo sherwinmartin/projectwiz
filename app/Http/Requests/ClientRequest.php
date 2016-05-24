@@ -25,7 +25,7 @@ class ClientRequest extends Request
      */
     public function rules()
     {
-        $client = Client::find($this->request['id']);
+        $client = Client::find(Request::get('id'));
         switch ($this->method())
         {
             case 'PUT':
