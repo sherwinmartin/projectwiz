@@ -44,18 +44,12 @@
                             <li{!! (isset($navi_group) && $navi_group == 'clients') ? ' class=active' : '' !!}>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clients <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li{!! (isset($navi_group) && ($navi_group) == 'clients' && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
+                                    <li{!! (isset($navi_group) && ($navi_group == 'clients') && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
                                         {{ link_to_action('ClientController@index', 'View All Clients') }}
                                     </li>
-
-                                        {{--!! link_to_route('clients.index', 'View All Clients') !!}</li>
-
-                                    @if (isset($navi_submenu) && $navi_group == 'clients' && $navi_submenu == 'create')
-                                        <li class="active">
-                                    @else
-                                        <li>
-                                    @endif
-                                        {!! link_to_route('clients.create', 'Create New Client') !!--}}</li>
+                                    <li{!! (isset($navi_group) && ($navi_group == 'clients') && ($navi_submenu == 'create')) !!}>
+                                        {{ link_to_action('ClientController@create', 'Create New Client') }}
+                                    </li>
                                 </ul>
                             </li>
 
