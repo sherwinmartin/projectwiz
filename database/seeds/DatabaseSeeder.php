@@ -127,5 +127,26 @@ class DatabaseSeeder extends Seeder
                 ]
             ]
         );
+
+        /**
+         * Projects table seed.
+         */
+        for ($i=1; $i<10; $i++)
+        {
+            $random_days = rand(1,1000);
+            DB::table('projects')->insert(
+                [
+                    'id'            => $i,
+                    'client_id'     => rand(1,3),
+                    'project_name'  => $faker->company.' Project',
+                    'project_lead_name' => $faker->name,
+                    'project_lead_email_address'    => $faker->companyEmail,
+                    'project_lead_phone_number'     => $faker->phoneNumber,
+                    'project_description'           => $faker->paragraph(),
+                    'start_date'    => date('Y-m-d', strtotime('-'.$random_days.' days')),
+                    'due_date'      => date('Y-m-d', strtotime($random_days.' days'))
+                ]
+            );
+        }
     }
 }
