@@ -11,6 +11,10 @@
     </div>
 
     @if (!$projects->isEmpty())
+        <nav class="pagination">
+            {{ $projects->render() }}
+        </nav>
+
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -31,6 +35,10 @@
                 @endforeach
             </tbody>
         </table>
+
+        <nav class="pagination">
+            {{ $projects->render() }}
+        </nav>
     @else
         <div class="alert alert-info">
             <p>No project found.</p>

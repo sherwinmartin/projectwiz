@@ -23,7 +23,7 @@ class ProjectController extends Controller
             'page_title'        => 'View All Projects',
             'navi_group'        => 'projects',
             'navi_submenu'      => 'index',
-            'projects'          => Project::with('client')->get()
+            'projects'          => Project::with('client')->paginate()
         ];
 
         return view('projects.index', $data);
