@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Models\Client;
+use App\Models\Milestone;
 use App\Models\Project;
+use App\User;
 
 use Redirect;
 
@@ -60,13 +62,20 @@ class ProjectController extends Controller
         return back()->withInput()->with('error', 'Project not created.');
     }
 
+    /**
+     * Show details about a project record.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show($id)
     {
         $data = [
             'page_title'        => 'Project Details',
             'navi_group'        => 'projects',
             'navi_submenu'      => 'show',
-            'project'           => Project::find($id)
+            'project'           => Project::find($id),
+            'milestones'        => Milestone::where('project_id', $id)->orderBy('start_date')->orderBy('due_date')->get(),
+            'allow_elevated_access' => User::hasRoles('admin|manager')
         ];
 
         return view('projects.show', $data);
