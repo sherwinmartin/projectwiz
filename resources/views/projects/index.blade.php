@@ -17,6 +17,7 @@
                     <th>Client</th>
                     <th>Project Name</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                     <tr>
                         <td>{{ $project->client->client_name }}</td>
                         <td>{{ $project->project_name }}</td>
+                        <td class="text-right">{{ link_to_action('ProjectController@show', 'details', ['id' => $project->id], ['class' => 'btn btn-default']) }}</td>
                         <td class="text-right">{{ link_to_action('ProjectController@edit', 'edit', ['id' => $project->id], ['class' => 'btn btn-default']) }}</td>
                     </tr>
                 @endforeach
