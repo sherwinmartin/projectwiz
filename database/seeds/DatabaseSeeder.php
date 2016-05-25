@@ -144,7 +144,29 @@ class DatabaseSeeder extends Seeder
                     'project_lead_phone_number'     => $faker->phoneNumber,
                     'project_description'           => $faker->paragraph(),
                     'start_date'    => date('Y-m-d', strtotime('-'.$random_days.' days')),
-                    'due_date'      => date('Y-m-d', strtotime($random_days.' days'))
+                    'due_date'      => date('Y-m-d', strtotime($random_days.' days')),
+                    'created_at'    => $now,
+                    'updated_at'    => $now
+                ]
+            );
+        }
+
+        /**
+         * Milestone table seed. Note that the start and due dates are not being check to see if they are within
+         * the date range of the project's start and due dates.
+         */
+        for ($i=1; $i<20; $i++)
+        {
+            $random_days = rand(1, 900);
+            DB::table('milestones')->insert(
+                [
+                    'id'            => $i,
+                    'project_id'    => rand(1,3),
+                    'milestone_name'    => $faker->company.' Milestone',
+                    'start_date'    => date('Y-m-d', strtotime('-'.$random_days.' days')),
+                    'due_date'      => date('Y-m-d', strtotime($random_days.' days')),
+                    'created_at'    => $now,
+                    'updated_at'    => $now
                 ]
             );
         }
