@@ -48,5 +48,6 @@ Route::group(['middleware' => 'role:admin|manager'], function ()
 {
     Route::resource('clients', 'ClientController');
     Route::resource('holidays', 'HolidayController');
+    Route::resource('milestones', 'MilestoneController');
     Route::resource('projects', 'ProjectController');
 });
