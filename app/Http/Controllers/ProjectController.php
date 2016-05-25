@@ -60,6 +60,18 @@ class ProjectController extends Controller
         return back()->withInput()->with('error', 'Project not created.');
     }
 
+    public function show($id)
+    {
+        $data = [
+            'page_title'        => 'Project Details',
+            'navi_group'        => 'projects',
+            'navi_submenu'      => 'show',
+            'project'           => Project::find($id)
+        ];
+
+        return view('projects.show', $data);
+    }
+
     /**
      * Display edit form.
      * @param $id
