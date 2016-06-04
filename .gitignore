@@ -8,3 +8,4 @@ Homestead.json
 .idea
 npm-debug.log
 error.log
+*.log
