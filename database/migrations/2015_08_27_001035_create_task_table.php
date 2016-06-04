@@ -27,12 +27,11 @@ class CreateTaskTable extends Migration
                 ->nullable();
             $table->date('due_date')
                 ->nullable();
-            $table->integer('completion_status')
-                ->default(0);
+            $table->integer('completion_status');
             $table->text('notes')
                 ->nullable();
             $table->integer('predecessor_task_id')
-                ->default(0);
+                ->nullable();
             $table->timestamps();
         });
     }
