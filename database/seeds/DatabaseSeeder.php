@@ -25,15 +25,15 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->insert(
             [
                 [
-                    'id'        => 1,
+                    #'id'        => 1,
                     'role_name'      => 'admin'
                 ],
                 [
-                    'id'        => 2,
+                    #'id'        => 2,
                     'role_name'      => 'staff'
                 ],
                 [
-                    'id'        => 3,
+                    #'id'        => 3,
                     'role_name'      => 'manager'
                 ]
             ]
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert(
             [
                 [
-                    'id'        => 1,
+                    #'id'        => 1,
                     'role_id'   => 1,
                     'first_name'    => 'admin',
                     'last_name'     => 'admin',
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
                     'updated_at'    => $now
                 ],
                 [
-                    'id'        => 2,
+                    #'id'        => 2,
                     'role_id'   => 2,
                     'first_name'    => 'user',
                     'last_name'     => 'user',
@@ -67,7 +67,7 @@ class DatabaseSeeder extends Seeder
                     'updated_at'    => $now
                 ],
                 [
-                    'id'        => 3,
+                    #'id'        => 3,
                     'role_id'   => 3,
                     'first_name'    => 'manager',
                     'last_name'     => 'manager',
@@ -86,19 +86,19 @@ class DatabaseSeeder extends Seeder
         DB::table('clients')->insert(
             [
                 [
-                    'id'            => 1,
+                    #'id'            => 1,
                     'client_name'   => $faker->company,
                     'created_at'    => $now,
                     'updated_at'    => $now
                 ],
                 [
-                    'id'            => 2,
+                    #'id'            => 2,
                     'client_name'   => $faker->company,
                     'created_at'    => $now,
                     'updated_at'    => $now
                 ],
                 [
-                    'id'            => 3,
+                    #'id'            => 3,
                     'client_name'   => $faker->company,
                     'created_at'    => $now,
                     'updated_at'    => $now
@@ -112,14 +112,14 @@ class DatabaseSeeder extends Seeder
         DB::table('holidays')->insert(
             [
                 [
-                    'id'            => 1,
+                    #'id'            => 1,
                     'holiday_name'  => 'New Year\'s Day',
                     'holiday_date'  => '2016-01-01',
                     'created_at'    => $now,
                     'updated_at'    => $now
                 ],
                 [
-                    'id'            => 2,
+                    #'id'            => 2,
                     'holiday_name'  => 'Valentines Day',
                     'holiday_date'  => '2016-02-14',
                     'created_at'    => $now,
@@ -136,7 +136,7 @@ class DatabaseSeeder extends Seeder
             $random_days = rand(1,1000);
             DB::table('projects')->insert(
                 [
-                    'id'            => $i,
+                    #'id'            => $i,
                     'client_id'     => rand(1,3),
                     'project_name'  => $faker->company.' Project',
                     'project_lead_name' => $faker->name,
@@ -160,7 +160,7 @@ class DatabaseSeeder extends Seeder
             $random_days = rand(1, 900);
             DB::table('milestones')->insert(
                 [
-                    'id'            => $i,
+                    #'id'            => $i,
                     'project_id'    => rand(1,3),
                     'milestone_name'    => $faker->company.' Milestone',
                     'start_date'    => date('Y-m-d', strtotime('-'.$random_days.' days')),
