@@ -170,5 +170,26 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+
+        /**
+         * Tasks table seed.
+         */
+        for ($i=1; $i<20; $i++)
+        {
+            $random_days = rand(1, 800);
+            DB::table('tasks')->insert(
+                [
+                    'milestone_id'      => rand(1, 5),
+                    'task_name'         => $faker->jobTitle.' Task',
+                    'task_description'  => $faker->sentence,
+                    'start_date'        => date('Y-m-d', strtotime('-'.$random_days.' days')),
+                    'due_date'          => date('Y-m-d', strtotime($random_days.' days')),
+                    'completion_status' => rand(1, 100),
+                    'notes'             => $faker->sentence,
+                    'created_at'    => $now,
+                    'updated_at'    => $now
+                ]
+            );
+        }
     }
 }
