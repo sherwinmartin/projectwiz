@@ -1,9 +1,5 @@
 @extends('layouts.default')
 
-@section('custom_css')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-@endsection
-
 @section('content')
     <ul class="breadcrumb">
         <li>{{ link_to_action('DashboardController@index', 'Home') }}</li>
@@ -76,7 +72,6 @@
 @endsection
 
 @section('custom_js_footer')
-    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script>
         $('#start_date').datepicker(
         {
