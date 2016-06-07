@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex,nofollow">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
         {!! HTML::style('css/app.css') !!}
         @yield('custom_js_head')
         @yield('custom_css')
@@ -174,6 +175,7 @@
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         <script src="//cdn.ckeditor.com/4.5.1/standard/ckeditor.js"></script>
         <script src="//cdn.ckeditor.com/4.5.1/standard/adapters/jquery.js"></script>
+        <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         {!! HTML::script('assets/js/site.js') !!}
         @yield('custom_js_footer')
     </body>
