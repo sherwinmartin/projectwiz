@@ -11,7 +11,7 @@
         <h2>{{ $page_title }}</h2>
     </div>
 
-    {{ Form::open() }}
+    {{ Form::open(['method' => 'POST', 'action' => 'MilestoneController@store']) }}
         <div class="form-group">
             {{ Form::label('project_id', '*Project:') }}
             <p class="form-control-static">
