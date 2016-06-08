@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Redirect;
 
 class RoleMiddleware
 {
@@ -20,6 +21,7 @@ class RoleMiddleware
             return $next($request);
         }
 
-        return back()->with('error', 'Access Denied');
+        //return back()->with('error', 'Access Denied');
+        return redirect::to('/login')->with('warning', 'Access Denied');
     }
 }
