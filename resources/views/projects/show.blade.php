@@ -100,7 +100,7 @@
                 @if ($allow_elevated_access)
                     <div class="panel-footer">
                         <ul class="list-inline list-unstyled">
-                            <li><a href="/milestones/create/{{ $project->id }}" class="btn btn-success"><i class="fa fa-plus"></i> Add Milestone</a></li>
+                            <li><a href="/milestones/create/?project_id={{ $project->id }}" class="btn btn-success"><i class="fa fa-plus"></i> Add Milestone</a></li>
                         </ul>
                     </div>
                 @endif
