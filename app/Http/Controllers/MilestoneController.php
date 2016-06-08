@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Models\Milestone;
 use App\Models\Project;
+use App\Models\Task;
+use App\User;
 
 use Redirect;
 
@@ -43,6 +45,26 @@ class MilestoneController extends Controller
         }
 
         return back()->with('error', 'Milestone not created.');
+    }
+
+    public function show($id)
+    {
+        $milestone = Milestone::find($id);
+
+        if (!$milestone)
+        {
+            return back()->with('warning', 'Milestone not found.');
+        }
+
+        $data = [
+            'page_title'        => 'Milestone Details',
+            'navi_group'        => 'milestones',
+            'navi_submenu'      => 'show',
+            'milestone'         => $milestone,
+            'allow_elevated_access' => User::hasRoles('admin|manager')
+        ];
+        
+        return view('milestones.show', $data);
     }
 
     /**
