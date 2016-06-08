@@ -83,6 +83,7 @@
                                 <th>Start Date</th>
                                 <th>Due Date</th>
                                 <th>&nbsp;</th>
+                                <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -91,7 +92,12 @@
                                     <td>{{ $milestone->milestone_name }}</td>
                                     <td>{{ $milestone->start_date }}</td>
                                     <td>{{ $milestone->due_date }}</td>
-                                    <td>{{ link_to_action('MilestoneController@edit', 'edit', ['id' => $milestone->id], ['class' => 'btn btn-default']) }}</td>
+                                    <th>{{ link_to_action('MilestoneController@show', 'details', ['id' => $milestone->id], ['class' => 'btn btn-default']) }}</th>
+                                    <td>
+                                        @if($allow_elevated_access)
+                                            {{ link_to_action('MilestoneController@edit', 'edit', ['id' => $milestone->id], ['class' => 'btn btn-default']) }}
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
