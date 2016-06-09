@@ -43,4 +43,44 @@
             </div>
         @endif
     </div>
+
+    @if (!$tasks->isEmpty())
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Tasks</h4>
+            </div>
+            <div class="">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Start Date</th>
+                            <th>Due Date</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($tasks as $task)
+                            <tr>
+                                <td>{{ $task->task_name }}</td>
+                                <td>{{ $task->start_date }}</td>
+                                <td>{{ $task->due_date }}</td>
+                                <td>{{ link_to_action('TaskController@show', 'details', ['id' => $task->id], ['class' => 'btn btn-default']) }}</td>
+                                <td>
+                                    @if($allow_elevated_access)
+                                        {{ link_to_action('TaskController@edit', 'edit', ['id' => $task->id], ['class' => 'btn btn-default']) }}
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @else
+        <div class="alert alert-info">
+            <p>No task found.</p>
+        </div>
+    @endif
 @endsection
