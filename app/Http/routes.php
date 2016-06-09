@@ -50,4 +50,5 @@ Route::group(['middleware' => 'role:admin|manager'], function ()
     Route::resource('holidays', 'HolidayController');
     Route::resource('milestones', 'MilestoneController');
     Route::resource('projects', 'ProjectController');
+    Route::resource('tasks', 'TaskController');
 });
