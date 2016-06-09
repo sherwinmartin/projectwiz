@@ -61,6 +61,7 @@ class MilestoneController extends Controller
             'navi_group'        => 'milestones',
             'navi_submenu'      => 'show',
             'milestone'         => $milestone,
+            'tasks'             => Task::where('milestone_id', $milestone->id)->get(),
             'allow_elevated_access' => User::hasRoles('admin|manager')
         ];
         
