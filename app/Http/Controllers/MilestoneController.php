@@ -126,6 +126,6 @@ class MilestoneController extends Controller
             return redirect::to('/projects/'.$milestone->project_id)->with('success', 'Milestone deleted.');
         }
 
-        return back()->with('error', 'Project not deleted.');
+        return back()->with('error', 'Milestone not deleted.');
     }
 }
