@@ -97,7 +97,11 @@ class MilestoneController extends Controller
         return view('milestones.edit', $data);
     }
 
-
+    /**
+     * Update milestone record.
+     * @param Requests\MilestoneRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Requests\MilestoneRequest $request)
     {
         if (Milestone::updateRecord($request))
@@ -108,6 +112,11 @@ class MilestoneController extends Controller
         return back()->withInput()->with('error', 'Milestone not updated.');
     }
 
+    /**
+     * Delete milestone record.
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         $milestone = Milestone::find($id);
