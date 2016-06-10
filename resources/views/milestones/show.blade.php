@@ -77,6 +77,11 @@
                     </tbody>
                 </table>
             </div>
+            @if ($allow_elevated_access)
+                <div class="panel-footer">
+                    <a class="btn btn-success" href="/tasks/create/?milestone_id={{ $milestone->id }}">Add Task</a>
+                </div>
+            @endif
         </div>
     @else
         <div class="alert alert-info">
