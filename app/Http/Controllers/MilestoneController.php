@@ -47,6 +47,11 @@ class MilestoneController extends Controller
         return back()->with('error', 'Milestone not created.');
     }
 
+    /**
+     * Show details of milestone record.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function show($id)
     {
         $milestone = Milestone::find($id);
