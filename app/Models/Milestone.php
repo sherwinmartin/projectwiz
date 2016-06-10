@@ -24,6 +24,15 @@ class Milestone extends Model
     }
 
     /**
+     * Relationship to tasks.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
+
+    /**
      * Check if milestone has tasks.
      * @param $milestone_id
      * @return bool
