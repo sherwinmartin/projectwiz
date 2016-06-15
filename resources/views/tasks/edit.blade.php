@@ -5,6 +5,7 @@
         <li>{{ link_to_action('DashboardController@index', 'Home') }}</li>
         <li>{{ link_to_action('ProjectController@show', $task->milestone->project->project_name, ['id' => $task->milestone->project->id]) }}</li>
         <li>{{ link_to_action('MilestoneController@show', $task->milestone->milestone_name, ['id' => $task->milestone->id]) }}</li>
+        <li>{{ link_to_action('TaskController@show', $task->task_name, ['id' => $task->id]) }}</li>
         <li class="active">{{ $page_title }}</li>
     </ul>
 

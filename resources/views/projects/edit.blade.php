@@ -4,6 +4,7 @@
     <ul class="breadcrumb">
         <li>{{ link_to_action('DashboardController@index', 'Home') }}</li>
         <li>{{ link_to_action('ProjectController@index', 'View All Projects') }}</li>
+        <li>{{ link_to_action('ProjectController@show', $project->project_name, ['id' => $project->id]) }}</li>
         <li class="active">{{ $page_title }}</li>
     </ul>
 
