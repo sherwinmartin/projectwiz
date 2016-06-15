@@ -5,10 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 use App\User;
+use DB;
 
 class TaskUser extends Model
 {
     protected $table = 'task_user';
+
+    protected $fillable = [
+        'task_id', 'user_id'
+    ];
 
     /**
      * Relationship to tasks.
@@ -35,15 +40,18 @@ class TaskUser extends Model
      */
     public static function getAvailableUser($task_id)
     {
-        $result = User::select('users.id', 'users.first_name')
-            ->whereNotExists(function ($query) use ($task_id)
-            {
-                $query->select('task_user.id')
-                    ->from('task_user')
-                    ->where('task_user.user_id', 'users.id')
-                    ->where('task_user.task_id', $task_id);
-            })->get();
-
+        $sql = "
+        SELECT `users`.`id`, `users`.`first_name`
+        FROM `users`
+        WHERE NOT EXISTS(
+          SELECT `task_user`.`id`
+          FROM `task_user`
+          WHERE `task_user`.`user_id` = `users`.`id`
+            AND `task_user`.`task_id` = ?
+        )
+        ";
+        $result = DB::select(DB::raw($sql), [$task_id]);
+        
         return $result;
     }
 
@@ -56,5 +64,20 @@ class TaskUser extends Model
     {
         return TaskUser::where('task_id', $task_id)
             ->get();
+    }
+
+
+    public static function add($user_id, $task_id)
+    {
+        $task_user = new TaskUser;
+        $task_user->task_id         = $task_id;
+        $task_user->user_id         = $user_id;
+
+        if ($task_user->save())
+        {
+            return true;
+        }
+
+        return false;
     }
 }
