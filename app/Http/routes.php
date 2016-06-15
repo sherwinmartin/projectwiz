@@ -51,4 +51,7 @@ Route::group(['middleware' => 'role:admin|manager'], function ()
     Route::resource('milestones', 'MilestoneController');
     Route::resource('projects', 'ProjectController');
     Route::resource('tasks', 'TaskController');
+
+    Route::get('task-user/add', 'TaskUserController@store');
+    Route::delete('task-user/delete/{id}', 'TaskUserController@destroy');
 });
