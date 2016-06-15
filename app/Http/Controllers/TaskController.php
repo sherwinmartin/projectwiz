@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Models\Milestone;
 use App\Models\Task;
+use App\Models\TaskUser;
+use App\User;
 
 use Redirect;
 
@@ -68,9 +70,32 @@ class TaskController extends Controller
         return back()->with('error', 'Task not created.');
     }
 
+    /**
+     * Display task details.
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function show($id)
     {
+        $task = Task::find($id);
 
+        if (!$task)
+        {
+            return back()->with('warning', 'Task not found.');
+        }
+
+        $data = [
+            'page_title'        => 'Task Details',
+            'navi_group'        => 'tasks',
+            'navi_submenu'      => 'show',
+            'task'              => $task,
+            'predecessor_task'  => Task::where('id', $task->predecessor_task_id)->first(),
+            'allow_elevated_access' => User::hasRoles('admin|manager'),
+            'available_users'   => TaskUser::getAvailableUser($task->id),
+            'assigned_users'    => TaskUser::getAssignedUser($task->id)
+        ];
+
+        return view('tasks.show', $data);
     }
 
     /**
@@ -98,8 +123,6 @@ class TaskController extends Controller
             'has_predecessor_task'  => Task::hasPredecessorTask($id),
             'percentages'       => $this->percentages()
         ];
-
-        #dd($this->percentages());
 
         return view('tasks.edit', $data);
     }
