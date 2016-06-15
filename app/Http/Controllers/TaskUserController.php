@@ -12,6 +12,11 @@ use Redirect;
 
 class TaskUserController extends Controller
 {
+    /**
+     * Create new task_user record.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(Request $request)
     {
         $task_id = $request['task_id'];
