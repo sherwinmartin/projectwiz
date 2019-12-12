@@ -8,7 +8,7 @@ Homestead.json
 Homestead.yaml
 .env
 
-/images/vendor
+/public/images/vendor
 composer.lock
 package-lock.json
 .DS_Store
