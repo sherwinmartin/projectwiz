@@ -7,9 +7,8 @@
         <meta name="author" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noindex,nofollow">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-        {!! HTML::style('css/app.css') !!}
+
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         @yield('custom_js_head')
         @yield('custom_css')
         <!-- For IE6-8 support of HTML5 elements -->
@@ -26,33 +25,37 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-expand-sm justify-content-between" role="navigation">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{!! URL::to('') !!}">
-                        <img src="{!! URL::asset('assets/images/projectwiz.png') !!}" class="brand img-responsive" style="height: 30px;" alt="ProjectWiz" />
-                    </a>
-                </div><!--/.navbar-header-->
+
+                <button type="button"
+                        class="navbar-toggler"
+                        data-toggle="collapse"
+                        data-target="#navbar-collapse-1">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{!! URL::asset('assets/images/projectwiz.png') !!}" class="brand img-responsive" style="height: 30px;" alt="ProjectWiz" />
+                </a>
+
 
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav">
+                    <ul class="navbar-nav">
                         @if (App\User::hasRoles('admin|manager'))
-                            <li{!! (isset($navi_group) && $navi_group == 'holidays') ? ' class=active' : '' !!}>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Holidays <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li{!! (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'index')) ? ' class=active' : '' !!}>
+                            <li class="nav-item dropdown{{ (isset($navi_group) && $navi_group == 'holidays') ? ' active' : '' }}">
+                                <a href="#"
+                                   class="nav-link dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">Holidays <span class="caret"></span></a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a class="dropdown-item{{ (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'index')) ? ' active' : '' }}">
                                         {{ link_to_action('HolidayController@index', 'View All Holidays') }}
-                                    </li>
-                                    <li{!! (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'create')) ? ' class=active' : '' !!}>
+                                    </a>
+                                    <a class="dropdown-menu{{ (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'create')) ? ' active' : '' }}">
                                         {{ link_to_action('HolidayController@create', 'Create New Holiday') }}
-                                    </li>
-                                </ul>
+                                    </a>
+                                </div>
                             </li>
 
                             <li{!! (isset($navi_group) && $navi_group == 'clients') ? ' class=active' : '' !!}>
@@ -135,11 +138,18 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                            <li>{!! link_to_action('UserController@login', 'Log In') !!}</li>
-                            <li><a href="/login">Log In</a></li>
+                            <li class="nav-item">
+                                <a href="{{ action('UserController@login') }}" class="nav-link">
+                                    Log In
+                                </a>
+                            </li>
                         @else
                             <li>{{--!! link_to_action('UserController@myProfile', 'My Profile') !!--}}</li>
-                            <li>{!! link_to('/logout', 'Log Out') !!}</li>
+                            <li class="nav-item">
+                                <a href="/logout" class="nav-link">
+                                    Log Out
+                                </a>
+                            </li>
                         @endif
                     </ul><!--/.navbar-right-->
 
@@ -170,13 +180,9 @@
                 </div>
             </div>
         </footer>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
-        <script src="//cdn.ckeditor.com/4.5.1/standard/ckeditor.js"></script>
-        <script src="//cdn.ckeditor.com/4.5.1/standard/adapters/jquery.js"></script>
-        <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        {!! HTML::script('assets/js/site.js') !!}
+
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}"></script>
         @yield('custom_js_footer')
     </body>
 </html>
