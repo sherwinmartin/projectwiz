@@ -8,10 +8,6 @@ class Holiday extends Model
 {
     protected $table = 'holidays';
 
-    protected $fillable = [
-        'name', 'holiday_date'
-    ];
-
     /**
      * Create new holiday record.
      * @param $request
@@ -20,8 +16,10 @@ class Holiday extends Model
     public static function storeRecord($request)
     {
         $holiday = new Holiday;
+        $holiday->name = $request->name;
+        $holiday->holiday_date = $request->holiday_date;
 
-        if ($holiday::create($request->all()))
+        if ($holiday->save())
         {
             return true;
         }
@@ -36,9 +34,12 @@ class Holiday extends Model
      */
     public static function updateRecord($request)
     {
-        $holiday = Holiday::find($request['id']);
+        $holiday = Holiday::find($request->id);
 
-        if ($holiday->update($request->all()))
+        $holiday->name = $request->name;
+        $holiday->holiday_date = $request->holiday_date;
+
+        if ($holiday->save())
         {
             return true;
         }
