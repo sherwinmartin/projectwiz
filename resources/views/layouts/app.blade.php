@@ -42,7 +42,7 @@
 
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="navbar-nav">
-                        @if (App\User::hasRoles('admin|manager'))
+                        @if (App\User::hasRoles('admin,manager'))
                             <li class="nav-item dropdown{{ (isset($navi_group) && $navi_group == 'holidays') ? ' active' : '' }}">
                                 <a href="#"
                                    class="nav-link dropdown-toggle"
