@@ -139,7 +139,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
                             <li class="nav-item">
-                                <a href="{{ action('UserController@login') }}" class="nav-link">
+                                <a href="{{ route('login') }}" class="nav-link">
                                     Log In
                                 </a>
                             </li>
