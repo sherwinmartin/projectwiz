@@ -49,11 +49,11 @@
                                    aria-haspopup="true"
                                    aria-expanded="false">Holidays <span class="caret"></span></a>
                                 <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item{{ (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'index')) ? ' active' : '' }}">
-                                        {{ link_to_action('HolidayController@index', 'View All Holidays') }}
+                                    <a class="dropdown-item{{ (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'index')) ? ' active' : '' }}"
+                                        href="{{ route('holidays.index') }}">View All
                                     </a>
-                                    <a class="dropdown-menu{{ (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'create')) ? ' active' : '' }}">
-                                        {{ link_to_action('HolidayController@create', 'Create New Holiday') }}
+                                    <a class="dropdown-item{{ (isset($navi_group) && ($navi_group == 'holidays') && ($navi_submenu == 'create')) ? ' active' : '' }}"
+                                        href="{{ route('holidays.create') }}">Create New Holiday
                                     </a>
                                 </div>
                             </li>
