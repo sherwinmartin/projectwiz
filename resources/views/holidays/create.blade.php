@@ -1,8 +1,4 @@
-@extends('layouts.default')
-
-@section('custom_css')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-@endsection
+@extends('layouts.app')
 
 @section('content')
     <ul class="breadcrumb">
