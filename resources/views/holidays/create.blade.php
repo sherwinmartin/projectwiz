@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <ul class="breadcrumb">
-        <li>{{ link_to_action('DashboardController@index', 'Home') }}</li>
-        <li>{{ link_to_action('HolidayController@index', 'View All Holidays') }}</li>
-        <li class="active">{{ $page_title }}</li>
-    </ul>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            {{ link_to_route('dashboard', 'Home') }}
+        </li>
+        <li class="breadcrumb-item">
+            {{ link_to_route('holidays.index', 'Holidays') }}
+        </li>
+        <li class="breadcrumb-item active">{{ $page_title }}</li>
+    </ol>
 
     <div class="page-header">
         <h2>{{ $page_title }}</h2>
