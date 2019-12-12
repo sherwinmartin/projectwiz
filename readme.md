@@ -1,8 +1,8 @@
 # Projectwiz
 
 ## Requirements
-* PHP5.4 or higher
-* Laravel 5.2 or higher
+* PHP7.2 or higher
+* Laravel 6 or higher
 * Composer
 * NodeJS
 
@@ -16,3 +16,6 @@
 * npm install
 
 Info coming soon...
+
+## Updating from Laravel 5.2 (work in progress...)
+If you get a post-autoload-dump error code 255, rm -rf bootstrap/cache/*.php
