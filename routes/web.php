@@ -11,7 +11,10 @@
 |
 */
 
-Route::group(['middleware' => 'web'], function()
+Route::get('/login', 'UserController@login')->name('login');
+Route::post('/authenticate', 'UserController@authenticate')->name('authenticate');
+
+/*Route::group(['middleware' => 'web'], function()
 {
     Route::get('/login', [
         'as'        => 'login',
@@ -27,7 +30,7 @@ Route::group(['middleware' => 'web'], function()
     // Password reset routes...
     Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
     Route::post('password/reset', 'Auth\PasswordController@postReset');
-});
+});*/
 
 // authenticated routes
 Route::group(['middleware' => 'auth'], function ()
