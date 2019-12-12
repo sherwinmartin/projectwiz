@@ -26,7 +26,7 @@ class HolidayController extends Controller
         $data = [
             'page_title'        => 'View All Holidays',
             'navi_group'        => 'holidays',
-            'navi_submenu'      => 'index',
+            'navi_submenu'      => 'holidays.index',
             'holidays'           => Holiday::get()
         ];
 
@@ -42,7 +42,7 @@ class HolidayController extends Controller
         $data = [
             'page_title'        => 'Create New Holiday',
             'navi_group'        => 'holidays',
-            'navi_submenu'      => 'create'
+            'navi_submenu'      => 'holidays.create'
         ];
 
         return view('holidays.create', $data);
@@ -73,7 +73,7 @@ class HolidayController extends Controller
         $data = [
             'page_title'        => 'Edit Holiday',
             'navi_group'        => 'holidays',
-            'navi_submenu'      => 'edit',
+            'navi_submenu'      => 'holidays.edit',
             'holiday'           => Holiday::find($id)
         ];
 
