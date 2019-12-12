@@ -19,26 +19,7 @@
         <div class="card">
             <div class="card-body">
                 {{ Form::open(['method' => 'POST', 'action' => 'HolidayController@store']) }}
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8">
-                            <div class="form-group">
-                                {{ Form::label('holiday_name', '*Holiday Name:') }}
-                                {{ Form::text('holiday_name', NULL, ['class' => 'form-control']) }}
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-4">
-                            {{ Form::label('holiday_date', '*Holiday Date:') }}
-                            <div class="input-group">
-                                {{ Form::text('holiday_date', date('Y-m-d'), ['class' => 'form-control', 'readonly' => 'readonly']) }}
-                                <div class="input-group-append">
-                                    <label for="holiday_date" class="input-group-text">
-                                        <i class="fas fa-calendar"></i>
-                                    </label>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    @include('holidays.partials.form')
 
                     <div class="form-group">
                         <button class="btn btn-primary" type="submit">
