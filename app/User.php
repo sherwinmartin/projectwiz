@@ -44,7 +44,7 @@ class User extends Authenticatable
     {
         if (Auth::check())
         {
-            $role_names = explode('|', $role_names);
+            $role_names = explode(',', $role_names);
             // check the authenticated user's role against the database
             $check_role = User::select('roles.role_name')
                 ->join('roles', 'roles.id', '=', 'users.role_id')

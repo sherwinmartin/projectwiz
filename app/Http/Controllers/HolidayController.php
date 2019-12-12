@@ -14,7 +14,7 @@ class HolidayController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin|manager');
+        $this->middleware('role:admin,manager');
     }
 
     /**
