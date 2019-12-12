@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
-use App\Models\Holiday;
+use App\Holiday;
 
 class HolidayRequest extends Request
 {
@@ -25,8 +23,7 @@ class HolidayRequest extends Request
      */
     public function rules()
     {
-        $holiday = Holiday::find(Request::get('id'));
-        $rules['holiday_name']      = 'required';
+        $rules['name']      = 'required';
 
         switch ($this->method())
         {
@@ -36,6 +33,7 @@ class HolidayRequest extends Request
             break;
 
             case 'PATCH':
+                $holiday = Holiday::find(request()->id);
                 $rules['holiday_date']       = 'required|unique:holidays,holiday_date,'.$holiday->id;
             break;
         }
