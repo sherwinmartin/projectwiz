@@ -113,14 +113,14 @@ class DatabaseSeeder extends Seeder
             [
                 [
                     #'id'            => 1,
-                    'holiday_name'  => 'New Year\'s Day',
+                    'name'          => 'New Year\'s Day',
                     'holiday_date'  => '2016-01-01',
                     'created_at'    => $now,
                     'updated_at'    => $now
                 ],
                 [
                     #'id'            => 2,
-                    'holiday_name'  => 'Valentines Day',
+                    'name'          => 'Valentines Day',
                     'holiday_date'  => '2016-02-14',
                     'created_at'    => $now,
                     'updated_at'    => $now
