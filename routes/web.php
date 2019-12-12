@@ -11,21 +11,24 @@
 |
 */
 
+Route::get('/', 'DashboardController@index')->name('dashboard');
+
 Route::get('/login', 'UserController@login')->name('login');
 Route::post('/authenticate', 'UserController@authenticate')->name('authenticate');
 
+// Password reset link request routes
+Route::get('/password/email', 'Auth\PasswordController@getEmail')->name('password.getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail')->name('password.postEmail');
+
+// holidays
+Route::get('/holidays', 'HolidayController@index')->name('holidays.index');
+Route::get('/holidays/create', 'HolidayController@create')->name('holidays.create');
+Route::post('/holidays/store', 'HolidayController@store')->name('holidays.store');
+Route::get('/holidays/{holiday}/edit', 'HolidayController@edit')->name('holidays.edit');
+Route::patch('/holidays/update', 'HolidayController@update')->name('holidays.update');
+
 /*Route::group(['middleware' => 'web'], function()
 {
-    Route::get('/login', [
-        'as'        => 'login',
-        'uses'      => 'UserController@login'
-    ]);
-
-    Route::post('/authenticate', 'UserController@authenticate');
-
-    // Password reset link request routes
-    Route::get('password/email', 'Auth\PasswordController@getEmail');
-    Route::post('password/email', 'Auth\PasswordController@postEmail');
 
     // Password reset routes...
     Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
@@ -35,11 +38,6 @@ Route::post('/authenticate', 'UserController@authenticate')->name('authenticate'
 // authenticated routes
 Route::group(['middleware' => 'auth'], function ()
 {
-    Route::get('/', [
-        'as'        => 'home',
-        'uses'      => 'DashboardController@index'
-    ]);
-
     Route::get('/logout', [
         'as'        => 'logout',
         'uses'      => 'UserController@logout'
@@ -50,7 +48,6 @@ Route::group(['middleware' => 'auth'], function ()
 Route::group(['middleware' => 'role:admin|manager'], function ()
 {
     Route::resource('clients', 'ClientController');
-    Route::resource('holidays', 'HolidayController');
     Route::resource('milestones', 'MilestoneController');
     Route::resource('projects', 'ProjectController');
     Route::resource('tasks', 'TaskController');
