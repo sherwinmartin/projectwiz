@@ -9,6 +9,7 @@
         <meta name="robots" content="noindex,nofollow">
 
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
         @yield('custom_js_head')
         @yield('custom_css')
         <!-- For IE6-8 support of HTML5 elements -->
