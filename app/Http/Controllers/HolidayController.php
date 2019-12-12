@@ -8,8 +8,6 @@ use App\Http\Requests;
 
 use App\Holiday;
 
-use Redirect;
-
 class HolidayController extends Controller
 {
     public function __construct()
@@ -42,7 +40,8 @@ class HolidayController extends Controller
         $data = [
             'page_title'        => 'Create New Holiday',
             'navi_group'        => 'holidays',
-            'navi_submenu'      => 'holidays.create'
+            'navi_submenu'      => 'holidays.create',
+            'holiday'           => new Holiday
         ];
 
         return view('holidays.create', $data);
@@ -65,16 +64,16 @@ class HolidayController extends Controller
 
     /**
      * Display edit form.
-     * @param $id
+     * @param Holiday $holiday
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Holiday $holiday)
     {
         $data = [
             'page_title'        => 'Edit Holiday',
             'navi_group'        => 'holidays',
             'navi_submenu'      => 'holidays.edit',
-            'holiday'           => Holiday::find($id)
+            'holiday'           => $holiday
         ];
 
         return view('holidays.edit', $data);
@@ -96,9 +95,9 @@ class HolidayController extends Controller
     }
 
     /**
-     * Delete holiday record.
+     * Delete record.
      * @param $id
-     * @return \Illuminate\Http\RedirectResponse3
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
@@ -106,7 +105,7 @@ class HolidayController extends Controller
 
         if ($holiday->delete())
         {
-            return redirect::action('HolidayController@index')->with('success', 'Holiday Deleted.');
+            return redirect()->action('HolidayController@index')->with('success', 'Holiday Deleted.');
         }
 
         return back()->with('error', 'Holiday not deleted.');
