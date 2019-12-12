@@ -22,7 +22,7 @@ class HolidayController extends Controller
     public function index()
     {
         $data = [
-            'page_title'        => 'View All Holidays',
+            'page_title'        => 'Holidays',
             'navi_group'        => 'holidays',
             'navi_submenu'      => 'holidays.index',
             'holidays'           => Holiday::get()
