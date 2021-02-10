@@ -1,8 +1,9 @@
 # Projectwiz
+A demo app using Laravel 8, Bootstrap 4 CSS Framework, jQuery JS Framework, and VueJS Framework. This app is not meant to be in production but contains code that uses different functionalities with the Laravel Framework. 
 
 ## Requirements
-* PHP7.2 or higher
-* Laravel 6 or higher
+* PHP7.3 or higher (not tested with PHP8)
+* Laravel 8
 * Composer
 * NodeJS
 
@@ -14,8 +15,21 @@
 * php artisan key:generate
 * Edit the .env file to match your environment.
 * npm install
+* npm run dev
 
-Info coming soon...
+## Laravel Sail
+If using Laravel Sail, adjust the *docker-compose.yml* file to suit your needs. 
 
-## Updating from Laravel 5.2 (work in progress...)
-If you get a post-autoload-dump error code 255, rm -rf bootstrap/cache/*.php
+## Example code usage
+* Laravel authentication (custom)
+* Eloquent relationships
+* Database migration files
+
+### Coming soon
+* Model factories
+* Seeder files
+* More custom authentication examples
+
+## Contact me
+* [Twitter @sherwinmdev](https://twitter.com/sherwinmdev)
+* [YouTube Channel](https://www.youtube.com/channel/UCxxfYRicpclvAjAveEgraYw)
