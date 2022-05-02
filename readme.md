@@ -2,8 +2,8 @@
 A demo app using Laravel 8, Bootstrap 4 CSS Framework, jQuery JS Framework, and VueJS Framework. This app is not meant to be in production but contains code that uses different functionalities with the Laravel Framework. 
 
 ## Requirements
-* PHP7.3 or higher (not tested with PHP8)
-* Laravel 8
+* PHP8 or higher (not tested with PHP8)
+* Laravel 9
 * Composer
 * NodeJS
 
